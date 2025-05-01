@@ -1,0 +1,7 @@
+pinecone-client>=3.0.0
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+sentence-transformers>=2.2.2
+jupyterlab>=4.0.0
+matplotlib>=3.7.0

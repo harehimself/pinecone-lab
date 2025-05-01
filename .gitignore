@@ -1,0 +1,19 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Notebooks
+.ipynb_checkpoints
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
