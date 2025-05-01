@@ -54,7 +54,7 @@ def create_metadata_index(name_suffix: str = None) -> str:
 def populate_index_with_rich_metadata(index_name: str, vector_count: int = 1000):
     """Populate index with vectors that have rich metadata."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"Populating index with {vector_count} vectors containing rich metadata")
     
@@ -128,7 +128,7 @@ def populate_index_with_rich_metadata(index_name: str, vector_count: int = 1000)
 def run_basic_filters(index_name: str, query_vector):
     """Demonstrate basic metadata filters."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print("\n--- Basic Metadata Filters ---")
     
@@ -205,7 +205,7 @@ def run_basic_filters(index_name: str, query_vector):
 def run_complex_filters(index_name: str, query_vector):
     """Demonstrate complex metadata filters with logical operators."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print("\n--- Complex Metadata Filters with Logical Operators ---")
     
@@ -300,7 +300,7 @@ def run_complex_filters(index_name: str, query_vector):
 def run_range_filters(index_name: str, query_vector):
     """Demonstrate range filters for numerical values and dates."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print("\n--- Range Filters ---")
     
@@ -376,7 +376,7 @@ def run_range_filters(index_name: str, query_vector):
 def run_array_contains_filters(index_name: str, query_vector):
     """Demonstrate filters for array field contains."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print("\n--- Array Contains Filters ---")
     

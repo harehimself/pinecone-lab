@@ -8,12 +8,16 @@ Hybrid search in Pinecone combining dense and sparse vectors.
 
 import time
 import uuid
-import numpy as np
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
 
-from src.config import DEFAULT_CLOUD, DEFAULT_REGION, DEFAULT_DIMENSION, DEFAULT_METRIC
-from src.utils import get_pinecone_client, create_random_vectors, wait_for_index_ready, clean_up_index
+import numpy as np
+
 from pinecone import ServerlessSpec
+from src.config import (DEFAULT_CLOUD, DEFAULT_DIMENSION, DEFAULT_METRIC,
+                        DEFAULT_REGION)
+from src.utils import (clean_up_index, create_random_vectors,
+                       get_pinecone_client, wait_for_index_ready)
+
 
 def create_indexes(sparse_suffix: str = None, dense_suffix: str = None) -> Tuple[str, str]:
     """Create both sparse and dense indexes."""
@@ -165,8 +169,8 @@ def upsert_vectors(sparse_index_name: str, dense_index_name: str,
                   sparse_vectors: List[Dict], dense_vectors: List[Dict]):
     """Upsert vectors to their respective indexes."""
     pc = get_pinecone_client()
-    sparse_index = pc.index(sparse_index_name)
-    dense_index = pc.index(dense_index_name)
+    sparse_index = pc.Index(sparse_index_name)
+    dense_index = pc.Index(dense_index_name)
     
     # Upsert sparse vectors
     print(f"Upserting {len(sparse_vectors)} sparse vectors")
@@ -229,7 +233,7 @@ def create_query_vectors(query_text: str, vocabulary: List[str], dimension: int 
 def search_sparse(sparse_index_name: str, query_sparse_vector: Dict, top_k: int = 3):
     """Perform a sparse vector search."""
     pc = get_pinecone_client()
-    sparse_index = pc.index(sparse_index_name)
+    sparse_index = pc.Index(sparse_index_name)
     
     print("\n--- Sparse Search Results ---")
     sparse_results = sparse_index.query(
@@ -248,7 +252,7 @@ def search_sparse(sparse_index_name: str, query_sparse_vector: Dict, top_k: int 
 def search_dense(dense_index_name: str, query_dense_vector: List[float], top_k: int = 3):
     """Perform a dense vector search."""
     pc = get_pinecone_client()
-    dense_index = pc.index(dense_index_name)
+    dense_index = pc.Index(dense_index_name)
     
     print("\n--- Dense Search Results ---")
     dense_results = dense_index.query(

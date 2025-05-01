@@ -54,7 +54,7 @@ def create_sample_index(name_suffix: str = None) -> str:
 def upsert_sample_vectors(index_name: str, vector_count: int = 100):
     """Upsert random vectors to the index."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     # Create random vectors
     vectors = create_random_vectors(vector_count, DEFAULT_DIMENSION)
@@ -92,7 +92,7 @@ def upsert_sample_vectors(index_name: str, vector_count: int = 100):
 def query_vectors(index_name: str, vector_data: List, top_k: int = 5):
     """Query the index with one of the vectors."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     # Pick a random vector to query with
     query_idx = np.random.randint(0, len(vector_data))
@@ -120,7 +120,7 @@ def query_vectors(index_name: str, vector_data: List, top_k: int = 5):
 def delete_vectors(index_name: str, vector_data: List, count: int = 5):
     """Delete a subset of vectors from the index."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     # Select random vectors to delete
     delete_indices = np.random.choice(len(vector_data), count, replace=False)

@@ -48,7 +48,7 @@ def create_integrated_embedding_index(name_suffix: str = None) -> str:
 def upsert_text_documents(index_name: str, documents: List[Dict]):
     """Upsert text documents directly to the index with integrated embedding."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"Upserting {len(documents)} text documents")
     
@@ -78,7 +78,7 @@ def upsert_text_documents(index_name: str, documents: List[Dict]):
 def query_with_text(index_name: str, query_text: str, top_k: int = 3):
     """Query the index directly with text using the integrated embedding."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"\nQuerying with text: '{query_text}'")
     

@@ -52,7 +52,7 @@ def create_source_index(name_suffix: str = None) -> str:
 def populate_source_index(index_name: str, vector_count: int = 100):
     """Populate the source index with sample vectors."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"Populating source index with {vector_count} vectors")
     
@@ -182,8 +182,8 @@ def restore_from_backup(source_index: str, backup_name: str) -> str:
 def verify_restore(source_index: str, target_index: str):
     """Verify that the restored index matches the source index."""
     pc = get_pinecone_client()
-    source = pc.index(source_index)
-    target = pc.index(target_index)
+    source = pc.Index(source_index)
+    target = pc.Index(target_index)
     
     # Get index stats
     source_stats = source.describe_index_stats()

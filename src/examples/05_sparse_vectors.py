@@ -107,7 +107,7 @@ def create_sparse_vectors(documents: List[str]) -> List[Dict]:
 def upsert_sparse_vectors(index_name: str, sparse_vectors: List[Dict]):
     """Upsert sparse vectors to the index."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"Upserting {len(sparse_vectors)} sparse vectors")
     
@@ -124,7 +124,7 @@ def upsert_sparse_vectors(index_name: str, sparse_vectors: List[Dict]):
 def query_sparse_vector(index_name: str, query_text: str, vocabulary: List[str], top_k: int = 3):
     """Query the sparse index with a text query."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"\nQuerying with text: '{query_text}'")
     

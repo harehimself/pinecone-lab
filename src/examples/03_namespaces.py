@@ -8,12 +8,16 @@ Working with Pinecone namespaces to isolate vector collections
 
 import time
 import uuid
-import numpy as np
-from typing import List, Dict
+from typing import Dict, List
 
-from src.config import DEFAULT_CLOUD, DEFAULT_REGION, DEFAULT_DIMENSION, DEFAULT_METRIC
-from src.utils import get_pinecone_client, create_random_vectors, wait_for_index_ready, clean_up_index
+import numpy as np
+
 from pinecone import ServerlessSpec
+from src.config import (DEFAULT_CLOUD, DEFAULT_DIMENSION, DEFAULT_METRIC,
+                        DEFAULT_REGION)
+from src.utils import (clean_up_index, create_random_vectors,
+                       get_pinecone_client, wait_for_index_ready)
+
 
 def create_namespace_index(name_suffix: str = None) -> str:
     """Create a test index with a unique name."""
@@ -49,7 +53,7 @@ def create_namespace_index(name_suffix: str = None) -> str:
 def populate_namespaces(index_name: str, namespaces: List[str], vectors_per_namespace: int = 50):
     """Populate multiple namespaces with vectors."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"Populating {len(namespaces)} namespaces with {vectors_per_namespace} vectors each")
     
@@ -81,7 +85,7 @@ def populate_namespaces(index_name: str, namespaces: List[str], vectors_per_name
 def namespace_stats(index_name: str):
     """Display statistics about each namespace."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     # Get index stats
     stats = index.describe_index_stats()
@@ -103,14 +107,14 @@ def namespace_stats(index_name: str):
             
         # Print index fullness if available
         if hasattr(ns_stats, 'index_fullness'):
-            print(f"    Index fullness: {ns_stats.index_fullness:.2f}")
+            print(f"    Index fullness: {ns_stats.Index_fullness:.2f}")
         
         print()
 
 def query_across_namespaces(index_name: str, namespaces: List[str], top_k: int = 3):
     """Query vectors across multiple namespaces."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     # Get a random vector from the first namespace to use as a query
     query_ns = namespaces[0]
@@ -144,7 +148,7 @@ def query_across_namespaces(index_name: str, namespaces: List[str], top_k: int =
 def delete_namespace_content(index_name: str, namespace: str):
     """Delete all vectors in a namespace."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"\nDeleting all vectors in namespace '{namespace}'")
     

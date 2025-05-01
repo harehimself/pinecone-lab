@@ -8,12 +8,16 @@ Vector operations in Pinecone including:
 
 import time
 import uuid
-import numpy as np
-from typing import List, Dict
+from typing import Dict, List
 
-from src.config import DEFAULT_CLOUD, DEFAULT_REGION, DEFAULT_DIMENSION, DEFAULT_METRIC
-from src.utils import get_pinecone_client, create_random_vectors, wait_for_index_ready, clean_up_index
+import numpy as np
+
 from pinecone import ServerlessSpec
+from src.config import (DEFAULT_CLOUD, DEFAULT_DIMENSION, DEFAULT_METRIC,
+                        DEFAULT_REGION)
+from src.utils import (clean_up_index, create_random_vectors,
+                       get_pinecone_client, wait_for_index_ready)
+
 
 def create_test_index(name_suffix: str = None) -> str:
     """Create a test index with a unique name."""
@@ -49,7 +53,7 @@ def create_test_index(name_suffix: str = None) -> str:
 def batch_upsert_demo(index_name: str, batch_size: int = 50, total_vectors: int = 200):
     """Demonstrate efficient batch upserting."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     print(f"Performing batch upsert of {total_vectors} vectors in batches of {batch_size}")
     
@@ -88,7 +92,7 @@ def batch_upsert_demo(index_name: str, batch_size: int = 50, total_vectors: int 
 def fetch_vectors_demo(index_name: str, count: int = 5):
     """Demonstrate vector fetching operations."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     # Get some vector ids to fetch
     vector_ids = [f"batch-vec-{i}" for i in range(count)]
@@ -109,7 +113,7 @@ def fetch_vectors_demo(index_name: str, count: int = 5):
 def update_vectors_demo(index_name: str, count: int = 5):
     """Demonstrate vector updates."""
     pc = get_pinecone_client()
-    index = pc.index(index_name)
+    index = pc.Index(index_name)
     
     # Get some vector ids to update
     vector_ids = [f"batch-vec-{i}" for i in range(count)]
