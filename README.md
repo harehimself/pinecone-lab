@@ -11,7 +11,7 @@ Experimenting with Pinecone as vector data is becoming the standard for AI-nativ
 
 **↘  Share the Project  ↙**\
 https://github.com/harehimself/pinecone
-<br>
+<br><br>
 [![Let's Connect on LinkedIn](https://img.shields.io/badge/Let's%20Connect%20on%20LinkedIn-blue)](https://www.linkedin.com/in/mike-hare)
 
 </div>  
