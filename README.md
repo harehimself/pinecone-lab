@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://pinecone.io" target="_blank" title="Pinecone Vector Database"><img width="196px" alt="Pinecone Logo" src="https://github.com/harehimself/pinecone/85ecfc8-5f3-86f8-5be6-cd27ff01c41_pinecone.PNG"></a>
+<a href="https://pinecone.io" target="_blank" title="Pinecone Vector Database"><img width="196px" alt="Pinecone Logo" src="https://raw.githubusercontent.com/harehimself/pinecone/refs/heads/main/pinecone-logo.png"></a>
 
 <a name="readme-top"></a>
 
