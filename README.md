@@ -9,8 +9,7 @@ Pinecone Learning & Experimentation
 Experimenting with Pinecone as vector data is becoming the standard for AI-native systems. Purpose of the project is learning and experimentation, with the intent of implementing all core Pinecone DB capabilities.
 
 
-**↘  Share the Project  ↙**\
-https://github.com/harehimself/pinecone
+**Share the Project:** https://github.com/harehimself/pinecone
 <br><br>
 [![Connect With Me On LinkedIn](https://img.shields.io/badge/Connect%20With%20Me%20On%20LinkedIn-blue)](https://www.linkedin.com/in/mike-hare)
 
