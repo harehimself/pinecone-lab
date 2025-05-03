@@ -15,7 +15,7 @@ https://github.com/harehimself/pinecone
 
 </div>  
 
-<br><br>
+<br>
 
 ## Setup
 
@@ -29,7 +29,7 @@ https://github.com/harehimself/pinecone
 - Variable Name: `PINECONE_API_KEY`
 - Variable Value: `your-api-key-here`
 
-<br><br>
+<br>
 
 ## Examples
 
@@ -59,7 +59,7 @@ The `src/examples` directory contains standalone Python scripts demonstrating Pi
 - 8. **Backup & Restore**: Backing up and restoring indexes
 `python -m src.examples.08_backup_restore`
 
-<br><br>
+<br>
 
 
 ## Jupyter Notebooks
@@ -72,7 +72,7 @@ The `notebooks` directory contains interactive notebooks for exploring Pinecone:
 2. **Advanced Usage**: More complex features and use cases
 `jupyter notebook notebooks/02_advanced_usage.ipynb`
 
-<br><br>
+<br>
 
 
 ## Project Structure
@@ -82,7 +82,7 @@ The `notebooks` directory contains interactive notebooks for exploring Pinecone:
 - `src/examples/`: Individual example scripts
 - `notebooks/`: Jupyter notebooks for interactive learning
 
-<br><br>
+<br>
 
 
 ## Notes
@@ -92,7 +92,7 @@ The `notebooks` directory contains interactive notebooks for exploring Pinecone:
 - Uncomment the cleanup code to delete indexes after running examples
 - For learning purposes, it's helpful to keep indexes around to inspect in the Pinecone console
 
-<br><br>
+<br>
 
 
 ## Future Enhancements
