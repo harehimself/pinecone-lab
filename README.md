@@ -14,7 +14,7 @@ https://github.com/harehimself/pinecone
 
 
 </div>
-
+<br>
 
 ## Setup
 
