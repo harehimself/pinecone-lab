@@ -1,6 +1,19 @@
-# Pinecone Learning & Experimentation
+<div align="center">
+<a href="https://pinecone.io" target="_blank" title="Pinecone Vector Database"><img width="196px" alt="Pinecone Logo" src="https://github.com/harehimself/pinecone/85ecfc8-5f3-86f8-5be6-cd27ff01c41_pinecone.PNG"></a>
+
+<a name="readme-top"></a>
+
+Pinecone Learning & Experimentation
+==================
 
 Experimenting with Pinecone as vector data is becoming the standard for AI-native systems. Purpose of the project is learning and experimentation, with the intent of implementing all core Pinecone DB capabilities.
+
+
+**↘  Share the Project  ↙**\
+https://github.com/harehimself/pinecone
+
+
+</div>
 
 
 ## Setup
